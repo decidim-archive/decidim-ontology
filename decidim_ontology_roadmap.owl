@@ -1,0 +1,1364 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.decidim.org/decidim_current/"
+     xml:base="http://ontology.decidim.org/decidim_current/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://ontology.decidim.org/decidim_roadmap/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/amendment_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/amendment_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_amendment"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Amendment"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:label xml:lang="en">amendment of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/assembly_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/assembly_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_assembly"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Assembly"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:label xml:lang="en">assembly of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/attended_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/attended_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/attendee_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Meeting"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
+        <rdfs:label>attended by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/attendee_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/attendee_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Meeting"/>
+        <rdfs:label>attendee of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/category_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/category_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_category"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label xml:lang="en">category of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/comment_voted_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/comment_voted_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/votes_comment"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label>comment voted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/configurator_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/configurator_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
+        <rdfs:label>configurator of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/container_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/container_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_container"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label xml:lang="en">container of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/creator_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/creator_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_creator"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label>creator of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/endorsed_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorsed_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/endorses"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/VerifiedGroup"/>
+        <rdfs:label>endorsed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/endorses -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorses">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/VerifiedGroup"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:label>endorses</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/first_comment_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/first_comment_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_first_comment"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Thread"/>
+        <rdfs:comment xml:lang="en">By opening a discussion about an Item, a FirstLevelComment starts a Thread. This property associates a FirstLevelComment to the corresponding Thread.</rdfs:comment>
+        <rdfs:label>first comment of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/followed_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/followed_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/follows"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label>followed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/follows -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/follows">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label>follows</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/functionality_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/functionality_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_functionality"/>
+        <rdfs:label>functionality of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/granted_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/granted_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/grants"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label>granted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/grants -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/grants">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:label>grants</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_amendment -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_amendment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Amendment"/>
+        <rdfs:label>has amendment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_assembly -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_assembly">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Assembly"/>
+        <rdfs:label xml:lang="en">has assembly</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_category -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_category">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
+        <rdfs:label xml:lang="en">has category</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_configurator -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_configurator">
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
+        <rdfs:label>has configurator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_container -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_container">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">has container</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_creator -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_creator">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label>has creator</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_first_comment -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_first_comment">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Thread"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
+        <rdfs:comment xml:lang="en">This property associates a Thread with the FirstLevelComment that opens it.</rdfs:comment>
+        <rdfs:label xml:lang="en">has first comment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_functionality -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_functionality">
+        <rdfs:label>has functionality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_initiative -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_initiative">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/initiative_of"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Initiative"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:label>has initiative</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_member -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_member">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/member_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_part -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_part">
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_phase -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_phase">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/phase_of"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Process"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Phase"/>
+        <rdfs:label xml:lang="en">has phase</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_platform -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_platform">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/platform_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform"/>
+        <rdfs:label xml:lang="en">has platform</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_reply -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_reply">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/reply_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:label xml:lang="en">has reply</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_result -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_result">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/result_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
+        <rdfs:label>has result</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_role -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_role">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/role_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:label>has role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_role_scope -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_role_scope">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/role_scope_of"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:label xml:lang="en">has role scope</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_scope -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_scope">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/scope_of"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Scope"/>
+        <rdfs:label xml:lang="en">has scope</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_space -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_space">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/space_of"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:label>has space</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_subcategory -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_subcategory">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/subcategory_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
+        <rdfs:label xml:lang="en">has_subcategory</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/initiative_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/initiative_of">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Initiative"/>
+        <rdfs:label>initiative of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/member_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/member_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:label xml:lang="en">member of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/mentioned_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/mentioned_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/mentions"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:label xml:lang="en">mentioned by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/mentions -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/mentions">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">mentions</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/part_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/part_of">
+        <rdfs:label xml:lang="en">part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/phase_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/phase_of">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Phase"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Process"/>
+        <rdfs:label xml:lang="en">phase of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/platform_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/platform_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:label xml:lang="en">platform of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/promoted_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/promoted_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/promotes"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:label>promoted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/promotes -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/promotes">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>promotes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/referenced_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/referenced_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/references"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label xml:lang="en">referenced by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/references -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/references">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label>references</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/reply_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/reply_of">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label xml:lang="en">reply of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/reported_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/reported_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/reports"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">reported by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/reports -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/reports">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label xml:lang="en">reports</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/result_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/result_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:label>result of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/role_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/role_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label>role of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/role_scope_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/role_scope_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:label>role scope of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/scope_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/scope_of">
+        <rdfs:label>scope of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/space_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/space_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:label>space of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/subcategory_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/subcategory_of">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
+        <rdfs:label xml:lang="en">subcategory of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/supported_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supported_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/supports"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
+        <rdfs:label xml:lang="en">supported by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/supports -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supports">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/VerifiedPerson"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:label>supports</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/votes_comment -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/votes_comment">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:label>votes comment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/AccountabilityContainer -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/AccountabilityContainer">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:comment xml:lang="en">This functionality allows participants to monitor the results of a participation space, and the progress of derived projects.</rdfs:comment>
+        <rdfs:label xml:lang="en">Accountability container</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Administrator -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Administrator">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Moderator"/>
+        <rdfs:comment xml:lang="en">A registered participant who has the role of Administrator can configure and manage a space, process or instance.</rdfs:comment>
+        <rdfs:label xml:lang="en">Administrator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Amendment -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Amendment">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/AuthoredItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/amendment_of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Assembly -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Assembly">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:comment xml:lang="en">An assembly is a participation space, defined as a structured group of participants that meet periodically, individually or representatively, and can create proposals and make decisions.</rdfs:comment>
+        <rdfs:label xml:lang="en">Assembly</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/AuthoredItem -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/AuthoredItem">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_creator"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Authored item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Blog -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Blog">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">Blog</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Blog_post -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Blog_post">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_container"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/Blog"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Blog post</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/BudgetedProject -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/BudgetedProject">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/AuthoredItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_container"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipativeBudget"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_creator"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A kind of proposal, that has a budget associated with it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Budgeted project</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Category -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Category">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:comment xml:lang="en">Categories are used to group items according to some criteria, typically the topic. They help participants browse and search information in the platform.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Category</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Collaborator -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Collaborator">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+        <rdfs:comment xml:lang="en">A collaborator can access the same information as an admin, including configuraion panels, but cannot modify it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Collaborator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Comment -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Comment">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/AuthoredItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_creator"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/reply_of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Comment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Configurator -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Configurator">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Configurator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Consultation -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Consultation">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:label xml:lang="en">Consultation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Container -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Container">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Participation container</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Debate -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Debate">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">Debate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/FirstLevelComment -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <owl:disjointWith rdf:resource="http://ontology.decidim.org/decidim_roadmap/NestedComment"/>
+        <rdfs:label xml:lang="en">First level comment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Group -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Group">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Organization"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_member"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A collective account corresponding to a group of registered participants.</rdfs:comment>
+        <rdfs:label xml:lang="en">Group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Initiative -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Initiative">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/initiative_of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/Initiative"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Initiative</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ManagedAccount -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ManagedAccount">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">Managed account</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Meeting -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Meeting">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:label xml:lang="en">Meeting</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/MeetingCalendar -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/MeetingCalendar">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">Meeting calendar</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Moderator -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Moderator">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Collaborator"/>
+        <rdfs:comment xml:lang="en">A moderator is a collaborator that can manage a Participation space or a Participation container (for example, she can assign a status to a proposal, and provide an official response).</rdfs:comment>
+        <rdfs:label xml:lang="en">Moderator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/NestedComment -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/NestedComment">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/reply_of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Nested comment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Newsletter -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Newsletter">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Newsletter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/OfficialAccount -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/OfficialAccount">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/VerifiedPerson"/>
+        <rdfs:comment xml:lang="en">A verified person whose account name has also been verified, and corresponds to the real name.</rdfs:comment>
+        <rdfs:label>Official account</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Organization -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Organization">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Page -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Page">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Page</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationElement -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationElement">
+        <rdfs:label xml:lang="en">Participation element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Participation functionality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationItem -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationItem">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:label xml:lang="en">Participation item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:label xml:lang="en">Participation platform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipativeBudget -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipativeBudget">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:comment xml:lang="en">This component allows participants to collectively define a budget by prioritizing budgeted projects.</rdfs:comment>
+        <rdfs:label xml:lang="en">Participative budget</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipativeText -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipativeText">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Participative text</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Person -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Person">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Phase -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Phase">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/phase_of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/Process"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Process -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Process">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:label xml:lang="en">Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ProcessGroup -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ProcessGroup">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:label xml:lang="en">Process group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Promoter -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Promoter">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Proposal -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Proposal">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/AuthoredItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_container"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/ProposalContainer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_creator"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Proposal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ProposalContainer -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ProposalContainer">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">Proposal container</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/ProposalIncubator -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ProposalIncubator">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">Proposal incubator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/RegisteredPerson -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Person"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">Registered person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Result -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Result">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/result_of"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_container"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/AccountabilityContainer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Result</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Role -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Role">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_scope"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Scope -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Scope">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:label xml:lang="en">Scope</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/SearchEngine -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/SearchEngine">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Search engine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/SectorialScope -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/SectorialScope">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Scope"/>
+        <rdfs:label xml:lang="en">Sectorial scope</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/SovereignOrganization -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/SovereignOrganization">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Organization"/>
+        <rdfs:label xml:lang="en">Sovereign organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Survey -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Survey">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Survey</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/SysAdmin -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/SysAdmin">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Administrator"/>
+        <rdfs:label xml:lang="en">Sys admin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/TerritorialScope -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/TerritorialScope">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Scope"/>
+        <rdfs:label xml:lang="en">Territorial scope</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Thread -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Thread">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:label xml:lang="en">Thread</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/VerifiedGroup -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/VerifiedGroup">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
+        <rdfs:label xml:lang="en">Verified group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/VerifiedPerson -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/VerifiedPerson">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
+        <rdfs:label xml:lang="en">Verified person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/VisitingParticipant -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/VisitingParticipant">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Participant"/>
+        <rdfs:label xml:lang="en">Visiting participant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/Votation -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Votation">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:label xml:lang="en">Votation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/#Agent -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/#Agent">
+        <rdfs:comment xml:lang="en">An entity that can perform actions. It can be an individual (Person) or a collective (Organization).</rdfs:comment>
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/#Participant -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/#Participant">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
+        <rdfs:comment xml:lang="en">General class that includes any individual or collective entity participating in a participation space</rdfs:comment>
+        <rdfs:label xml:lang="en">Participant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_scope"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/SectorialScope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_scope"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/TerritorialScope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_platform"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Participation space</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Participant"/>
+        <rdfs:comment xml:lang="en">A participant that has a registered account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Registered participant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">Verified participant</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
