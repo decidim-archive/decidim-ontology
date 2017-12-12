@@ -49,6 +49,7 @@
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/associated_with">
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:label xml:lang="en">associated with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -99,7 +100,9 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/configurator_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/configurator_of">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
         <rdfs:label>configurator of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -131,7 +134,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/endorsed_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorsed_by">
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/endorses"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/endorser_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
         <rdfs:label>endorsed by</rdfs:label>
@@ -139,12 +142,12 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/endorses -->
+    <!-- http://ontology.decidim.org/decidim_roadmap/endorser_of -->
 
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorses">
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorser_of">
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
-        <rdfs:label>endorses</rdfs:label>
+        <rdfs:label xml:lang="en">endorser of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -246,6 +249,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_configurator -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_configurator">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
         <rdfs:label>has configurator</rdfs:label>
     </owl:ObjectProperty>
@@ -418,6 +422,7 @@
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_space">
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/space_of"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
         <rdfs:label>has space</rdfs:label>
     </owl:ObjectProperty>
@@ -613,6 +618,7 @@
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/space_of">
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
         <rdfs:label>space of</rdfs:label>
     </owl:ObjectProperty>
     
