@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://ontology.decidim.org/decidim_current/"
-     xml:base="http://ontology.decidim.org/decidim_current/"
+<rdf:RDF xmlns="http://ontology.decidim.org/decidim_roadmap/"
+     xml:base="http://ontology.decidim.org/decidim_roadmap/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -21,9 +21,19 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/acts_on -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/acts_on">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
+        <rdfs:label xml:lang="en">acts on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/amendment_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/amendment_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_amendment"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Amendment"/>
@@ -33,30 +43,10 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/assembly_of -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/assembly_of">
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_assembly"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Assembly"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
-        <rdfs:label xml:lang="en">assembly of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ontology.decidim.org/decidim_roadmap/associated_with -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/associated_with">
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
-        <rdfs:label xml:lang="en">associated with</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/attended_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/attended_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/attendee_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Meeting"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
@@ -68,6 +58,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/attendee_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/attendee_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Meeting"/>
         <rdfs:label>attendee of</rdfs:label>
@@ -75,9 +66,19 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/belong_to -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/belong_to">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
+        <rdfs:label xml:lang="en">belongs to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/category_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/category_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specifies"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_category"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
@@ -89,6 +90,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/comment_voted_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/comment_voted_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/votes_comment"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
@@ -100,6 +102,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/configurator_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/configurator_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
@@ -111,6 +114,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/container_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/container_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_container"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
@@ -122,6 +126,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/creator_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/creator_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_creator"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
@@ -131,9 +136,33 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/derives -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/derives">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/referred_by"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/derives_from"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Project"/>
+        <rdfs:label xml:lang="en">derives</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/derives_from -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/derives_from">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Project"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
+        <rdfs:label xml:lang="en">derived from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/endorsed_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorsed_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/endorser_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
@@ -145,6 +174,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/endorser_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorser_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:label xml:lang="en">endorser of</rdfs:label>
@@ -155,6 +185,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/first_comment_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/first_comment_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_first_comment"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Thread"/>
@@ -167,6 +198,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/followed_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/followed_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/follows"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
@@ -178,6 +210,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/follows -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/follows">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:label>follows</rdfs:label>
@@ -188,7 +221,12 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/functionality_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/functionality_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_functionality"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:comment xml:lang="en">Indicates that a ParticipationSpace includes a ParticipationFunctionality. 
+Each ParticipationSpace can include more instances of the same kind of functionality; for example, a Process may include various Debates and Pages.</rdfs:comment>
         <rdfs:label>functionality of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -197,6 +235,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/granted_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/granted_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/grants"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
@@ -208,6 +247,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/grants -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/grants">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
         <rdfs:label>grants</rdfs:label>
@@ -215,9 +255,19 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_actor -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_actor">
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
+        <rdfs:label xml:lang="en">has actor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/has_amendment -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_amendment">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/referred_by"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Amendment"/>
@@ -226,19 +276,10 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/has_assembly -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_assembly">
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Assembly"/>
-        <rdfs:label xml:lang="en">has assembly</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/has_category -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_category">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specified_by"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
         <rdfs:label xml:lang="en">has category</rdfs:label>
@@ -249,6 +290,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_configurator -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_configurator">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
         <rdfs:label>has configurator</rdfs:label>
@@ -259,6 +301,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_container -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_container">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
         <rdfs:label xml:lang="en">has container</rdfs:label>
@@ -269,9 +312,11 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_creator -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_creator">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:comment xml:lang="en">This property links an AuthoredItem to its creator.</rdfs:comment>
         <rdfs:label>has creator</rdfs:label>
     </owl:ObjectProperty>
     
@@ -280,6 +325,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_first_comment -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_first_comment">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Thread"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
         <rdfs:comment xml:lang="en">This property associates a Thread with the FirstLevelComment that opens it.</rdfs:comment>
@@ -291,6 +337,9 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_functionality -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_functionality">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
         <rdfs:label>has functionality</rdfs:label>
     </owl:ObjectProperty>
     
@@ -299,6 +348,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_initiative -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_initiative">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/initiative_of"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Initiative"/>
@@ -311,6 +361,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_member -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_member">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/member_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
@@ -319,17 +370,10 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/has_part -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_part">
-        <rdfs:label xml:lang="en">has part</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/has_phase -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_phase">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/phase_of"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Process"/>
@@ -342,6 +386,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_platform -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_platform">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/platform_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform"/>
@@ -353,6 +398,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_promoter -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_promoter">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/promoter_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
@@ -365,9 +411,11 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_reply -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_reply">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/referred_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/reply_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
+        <rdfs:comment xml:lang="en">Points to an Comment that is a reply or response to this Item.</rdfs:comment>
         <rdfs:label xml:lang="en">has reply</rdfs:label>
     </owl:ObjectProperty>
     
@@ -376,6 +424,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_result -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_result">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/referred_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/result_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
@@ -387,6 +436,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_role -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_role">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specified_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/role_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
@@ -398,6 +448,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_role_scope -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_role_scope">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specified_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/role_scope_of"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
@@ -410,6 +461,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/has_scope -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_scope">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specified_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/scope_of"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Scope"/>
         <rdfs:label xml:lang="en">has scope</rdfs:label>
@@ -417,21 +469,10 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/has_space -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_space">
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/space_of"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
-        <rdfs:label>has space</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/has_subcategory -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_subcategory">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/subcategory_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
@@ -440,9 +481,29 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_subgroup -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_subgroup">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:label xml:lang="en">has subgroup</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/includes -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/includes">
+        <rdfs:label xml:lang="en">includes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/initiative_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/initiative_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Initiative"/>
@@ -454,6 +515,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/member_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/member_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:label xml:lang="en">member of</rdfs:label>
@@ -464,6 +526,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/mentioned_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/mentioned_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/referred_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/mentions"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
@@ -475,6 +538,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/mentions -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/mentions">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:label xml:lang="en">mentions</rdfs:label>
@@ -482,17 +546,10 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/part_of -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/part_of">
-        <rdfs:label xml:lang="en">part of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/phase_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/phase_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Phase"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Process"/>
@@ -504,6 +561,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/platform_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/platform_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
         <rdfs:label xml:lang="en">platform of</rdfs:label>
@@ -514,6 +572,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/promoter_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/promoter_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
         <rdfs:comment></rdfs:comment>
@@ -526,6 +585,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/referenced_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/referenced_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/referred_by"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/references"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
@@ -537,6 +597,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/references -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/references">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:label>references</rdfs:label>
@@ -544,12 +605,35 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/referred_by -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/referred_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:comment xml:lang="en">This general property indicates that an entity points to another that refers to it in some way. This may be because the entity is mentioned, references, amended or replied to by another one. Specific subproperties help distinguish these different cases.</rdfs:comment>
+        <rdfs:label xml:lang="en">referred by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/refers_to -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/refers_to">
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:comment xml:lang="en">This general property indicates that an entity points to another one it is referred to in some way. This may be because the entity mentions, references, amends or replies to another one. Specific subproperties help distinguish these different cases.</rdfs:comment>
+        <rdfs:label xml:lang="en">refers to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/reply_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/reply_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:comment xml:lang="en">Points to an Item which this Comment replies to.</rdfs:comment>
         <rdfs:label xml:lang="en">reply of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -558,6 +642,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/reported_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/reported_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/reports"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
@@ -569,6 +654,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/reports -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/reports">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:label xml:lang="en">reports</rdfs:label>
@@ -579,6 +665,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/result_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/result_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/refers_to"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:label>result of</rdfs:label>
@@ -589,6 +676,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/role_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/role_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specifies"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:label>role of</rdfs:label>
@@ -599,6 +687,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/role_scope_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/role_scope_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specifies"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
         <rdfs:label>role scope of</rdfs:label>
@@ -609,17 +698,25 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/scope_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/scope_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specifies"/>
         <rdfs:label>scope of</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/space_of -->
+    <!-- http://ontology.decidim.org/decidim_roadmap/specified_by -->
 
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/space_of">
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
-        <rdfs:label>space of</rdfs:label>
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/specified_by">
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specifies"/>
+        <rdfs:label xml:lang="en">specified by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/specifies -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/specifies">
+        <rdfs:label xml:lang="en">specifies</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -627,6 +724,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/subcategory_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/subcategory_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Category"/>
         <rdfs:label xml:lang="en">subcategory of</rdfs:label>
@@ -634,9 +732,21 @@
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/subgroup_of -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/subgroup_of">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:label xml:lang="en">subgroup of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/supported_by -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supported_by">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/supports"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
@@ -648,6 +758,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/supports -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supports">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/VerifiedPerson"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:label>supports</rdfs:label>
@@ -658,6 +769,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/votes_comment -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/votes_comment">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Comment"/>
         <rdfs:label>votes comment</rdfs:label>
@@ -714,8 +826,9 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/Assembly -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Assembly">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
-        <rdfs:comment xml:lang="en">An assembly is a participation space, defined as a structured group of participants that meet periodically, individually or representatively, and can create proposals and make decisions.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An assembly is a participation space, defined as a structured group of participants that meet periodically, individually or representatively, and can create proposals and make decisions. Beyond being a Participation space, an assembly is also a Group, and as such it can be the promoter of a Process, or participate in other participation spaces.</rdfs:comment>
         <rdfs:label xml:lang="en">Assembly</rdfs:label>
     </owl:Class>
     
@@ -789,7 +902,7 @@
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Category">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
-        <rdfs:comment xml:lang="en">Categories are used to group items according to some criteria, typically the topic. They help participants browse and search information in the platform.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Categories are used to group items according to some criteria, typically the topic. They help participants browse and search information in a Participation space.</rdfs:comment>
         <rdfs:comment xml:lang="en">Category</rdfs:comment>
     </owl:Class>
     
@@ -831,7 +944,7 @@
     <!-- http://ontology.decidim.org/decidim_roadmap/Configurator -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Configurator">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
         <rdfs:label xml:lang="en">Configurator</rdfs:label>
     </owl:Class>
     
@@ -1106,7 +1219,7 @@
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/associated_with"/>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/derives_from"/>
                 <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/Result"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1315,6 +1428,22 @@
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Votation">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
         <rdfs:label xml:lang="en">Votation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/WorkingGroup -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/WorkingGroup">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/subgroup_of"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/Assembly"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Working group</rdfs:label>
     </owl:Class>
     
 
