@@ -1311,6 +1311,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/Role -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Role">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_scope"/>
