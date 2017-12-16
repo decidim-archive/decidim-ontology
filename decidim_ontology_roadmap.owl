@@ -104,8 +104,9 @@
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/configurator_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:label>configurator of</rdfs:label>
     </owl:ObjectProperty>
     
@@ -187,6 +188,7 @@
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/first_comment_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/belong_to"/>
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_first_comment"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Thread"/>
         <rdfs:comment xml:lang="en">By opening a discussion about an Item, a FirstLevelComment starts a Thread. This property associates a FirstLevelComment to the corresponding Thread.</rdfs:comment>
@@ -199,7 +201,7 @@
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/followed_by">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/follows"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/follower_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:label>followed by</rdfs:label>
@@ -207,13 +209,14 @@
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/follows -->
+    <!-- http://ontology.decidim.org/decidim_roadmap/follower_of -->
 
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/follows">
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/follower_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
-        <rdfs:label>follows</rdfs:label>
+        <rdfs:comment xml:lang="en">This property associates a RegisteredParticipant to an Item they have subscribed to, in order to receive notifications and updates about it.</rdfs:comment>
+        <rdfs:label xml:lang="en">follower of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -291,7 +294,8 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_configurator">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
         <rdfs:label>has configurator</rdfs:label>
     </owl:ObjectProperty>
@@ -326,6 +330,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_first_comment">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/includes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Thread"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
         <rdfs:comment xml:lang="en">This property associates a Thread with the FirstLevelComment that opens it.</rdfs:comment>
@@ -452,7 +457,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
         <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/role_scope_of"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:label xml:lang="en">has role scope</rdfs:label>
     </owl:ObjectProperty>
     
@@ -697,7 +702,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/role_scope_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/specifies"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
         <rdfs:label>role scope of</rdfs:label>
     </owl:ObjectProperty>
@@ -767,7 +772,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supported_by">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/supports"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/supporter_of"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
         <rdfs:label xml:lang="en">supported by</rdfs:label>
@@ -775,12 +780,13 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/supports -->
+    <!-- http://ontology.decidim.org/decidim_roadmap/supporter_of -->
 
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supports">
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supporter_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/VerifiedPerson"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:label xml:lang="en">supporter of</rdfs:label>
         <rdfs:label>supports</rdfs:label>
     </owl:ObjectProperty>
     
@@ -822,7 +828,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Administrator">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Moderator"/>
-        <rdfs:comment xml:lang="en">A registered participant who has the role of Administrator can configure and manage a space, process or instance.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A registered participant who has the role of Administrator on a ParticipationArtifact can configure and manage it, and can grant other RegisteredParticipants administration permissions of Collaborator, Moderator or Administrator in the same ParticipationArtifact or on a ParticipationArtifact contained in it.</rdfs:comment>
         <rdfs:label xml:lang="en">Administrator</rdfs:label>
     </owl:Class>
     
@@ -940,7 +946,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Collaborator">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
-        <rdfs:comment xml:lang="en">A collaborator can access the same information as an admin, including configuraion panels, but cannot modify it.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A RwgisteredParticipant having the Role of Collaborator in a given role scope can access the same information as an Administrator, including configuration panels, but cannot modify it.</rdfs:comment>
         <rdfs:label xml:lang="en">Collaborator</rdfs:label>
     </owl:Class>
     
@@ -972,7 +978,15 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/Configurator -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Configurator">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/configurator_of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Administration panel associated to a ParticipationArtifact, that allows Administrators to configure it. Collaborators of the artifat can access the configurator but not modify it; moderators can also access the configurator, and additionally they can manage certain aspects such as accepting or rejecting proposals.</rdfs:comment>
         <rdfs:label xml:lang="en">Configurator</rdfs:label>
     </owl:Class>
     
@@ -1080,7 +1094,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Moderator">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Collaborator"/>
-        <rdfs:comment xml:lang="en">A moderator is a collaborator that can manage a Participation space or a Participation container (for example, she can assign a status to a proposal, and provide an official response).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The role of Moderator attributes to a RegisteredParticipant the same rights as a Collaborator for accessing information, plus the possibility of managing ParticipationArtifacts within the role&apos;s scope (for example, they can assign a status to a Proposal, and provide an official response).</rdfs:comment>
         <rdfs:label xml:lang="en">Moderator</rdfs:label>
     </owl:Class>
     
@@ -1140,11 +1154,11 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationElement -->
+    <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact -->
 
-    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationElement">
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact">
         <rdfs:comment xml:lang="en">General class including the various elements that allow democratic participation in Decidim: ParticipationPlatforms, ParticipationSpaces (such as Participation processes or Assemblies), ParticipationFunctionalities (such as Debates, Surveys or Votations), and ParticipationItems (such as individual proposals, meetings or comments).</rdfs:comment>
-        <rdfs:label xml:lang="en">Participation element</rdfs:label>
+        <rdfs:label xml:lang="en">Participation artifact</rdfs:label>
     </owl:Class>
     
 
@@ -1152,7 +1166,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
@@ -1167,7 +1181,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationItem -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationItem">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:label xml:lang="en">Participation item</rdfs:label>
     </owl:Class>
     
@@ -1176,7 +1190,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/ParticipationPlatform">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:label xml:lang="en">Participation platform</rdfs:label>
     </owl:Class>
     
@@ -1342,11 +1356,11 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/Role -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Role">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/#Agent"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Attribute"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_scope"/>
-                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">Role</rdfs:label>
@@ -1391,6 +1405,14 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/Supporter -->
+
+    <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Supporter">
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Role"/>
+    </owl:Class>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/Survey -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Survey">
@@ -1404,6 +1426,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/SysAdmin">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Administrator"/>
+        <rdfs:comment xml:lang="en">A RegisteredParticipant having the role of SysAdmin (Sytem administrator) has rights to access and modify any aspect of the platform. This includes granting any administration role to other RegisteredParticipants.</rdfs:comment>
         <rdfs:label xml:lang="en">Sys admin</rdfs:label>
     </owl:Class>
     
@@ -1505,7 +1528,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationElement"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
