@@ -986,7 +986,8 @@ Each ParticipationSpace can include more instances of the same kind of functiona
                 <owl:onClass rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">Administration panel associated to a ParticipationArtifact, that allows Administrators to configure it. Collaborators of the artifat can access the configurator but not modify it; moderators can also access the configurator, and additionally they can manage certain aspects such as accepting or rejecting proposals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Administration panel associated to a ParticipationArtifact, that allows Administrators to configure it. Collaborators of the artifat can access the configurator but not modify it; moderators can also access the configurator, and additionally they can manage certain aspects such as accepting or rejecting proposals.
+A Configurator is linked to the ParticipationArtifacts it allows to configure through the property configurator_of.</rdfs:comment>
         <rdfs:label xml:lang="en">Configurator</rdfs:label>
     </owl:Class>
     
@@ -1005,6 +1006,9 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Container">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:comment xml:lang="en">Functionalities of this kind contain ParticipationItems, to which they are linked to the property container_of. 
+
+Different kinds of ParticipationContainers contain different kinds of ParticipationItems: for example, a Debate contains items of ind Thread and Comment, a ProposalIncubator contains Proposals, a ParticipativeBudget contains BudgetedProposals and a MeetingCalendar contains Meetings.</rdfs:comment>
         <rdfs:label xml:lang="en">Participation container</rdfs:label>
     </owl:Class>
     
@@ -1120,6 +1124,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Newsletter">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:comment xml:lang="en">A Newsletter associated to a ParticipatinProcess allows to broadcast messages to all the RegisteredParticipants associated to it, or to specific kinds of participants.</rdfs:comment>
         <rdfs:label xml:lang="en">Newsletter</rdfs:label>
     </owl:Class>
     
@@ -1149,6 +1154,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Page">
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationFunctionality"/>
+        <rdfs:comment xml:lang="en">This ParticipationFunctionality allows to create informative pages with enriched text, images or videos.</rdfs:comment>
         <rdfs:label xml:lang="en">Page</rdfs:label>
     </owl:Class>
     
@@ -1169,10 +1175,24 @@ Each ParticipationSpace can include more instances of the same kind of functiona
         <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationArtifact"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/functionality_of"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/#ParticipationSpace"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_configurator"/>
                 <owl:someValuesFrom rdf:resource="http://ontology.decidim.org/decidim_roadmap/Configurator"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">This class includes the different functionalitites that can be added to a ParticipationSpace by RegisteredParticipants having administrative role to configure it. 
+
+Each ParticipationFunctionality has to be linked to at least one participationSpace it belongs to, through the property functionality_of.
+Furthermore, a ParticipationFunctionality needs to have a Configurator that allows its configuration by participants having the permissions to do so.
+
+Some functionalitites represent one single element that is added to the ParticipationSpace, such as a Page, a Votation or a Survey, while other functionalities are elements that contain participationItems, such as Proposals, BudgetedProposals, Meetings or Comments; such functionalitties that contain ParticipationItems are defined as ParticipationContainers.
+
+While some functionalities are general and can belong to any kind of ParticipationSpace, such as a Page, a Blog or a Debate, other are specific to a certain kind of participationSpace. E.g., a WorkingGroup can only belong to an Assembly. In the latter case, the range of the property functionality_of for that particular ParticipationFunctionality is restrictetd to the kind of space it can belong to.</rdfs:comment>
         <rdfs:label xml:lang="en">Participation functionality</rdfs:label>
     </owl:Class>
     
@@ -1444,7 +1464,7 @@ Each ParticipationSpace can include more instances of the same kind of functiona
     <!-- http://ontology.decidim.org/decidim_roadmap/Thread -->
 
     <owl:Class rdf:about="http://ontology.decidim.org/decidim_roadmap/Thread">
-        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/Container"/>
+        <rdfs:subClassOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:label xml:lang="en">Thread</rdfs:label>
     </owl:Class>
     
