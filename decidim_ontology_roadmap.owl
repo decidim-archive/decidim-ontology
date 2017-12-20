@@ -180,22 +180,11 @@ It is inverse property of property includes.</rdfs:comment>
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/endorsed_by -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorsed_by">
-        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/endorser_of"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
-        <rdfs:label>endorsed by</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/endorser_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/endorser_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_endorser"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
         <rdfs:label xml:lang="en">endorser of</rdfs:label>
@@ -217,22 +206,11 @@ It is inverse property of property includes.</rdfs:comment>
     
 
 
-    <!-- http://ontology.decidim.org/decidim_roadmap/followed_by -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/followed_by">
-        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/follower_of"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
-        <rdfs:label>followed by</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://ontology.decidim.org/decidim_roadmap/follower_of -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/follower_of">
         <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/acts_on"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_follower"/>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
         <rdfs:comment xml:lang="en">This property associates a RegisteredParticipant to an Item they have subscribed to, in order to receive notifications and updates about it.</rdfs:comment>
@@ -382,6 +360,17 @@ It is inverse property of acts_on, and it has range Agent.</rdfs:comment>
     
 
 
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_endorser -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_endorser">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#VerifiedParticipant"/>
+        <rdfs:label>has endorser</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ontology.decidim.org/decidim_roadmap/has_first_comment -->
 
     <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_first_comment">
@@ -391,6 +380,17 @@ It is inverse property of acts_on, and it has range Agent.</rdfs:comment>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/FirstLevelComment"/>
         <rdfs:comment xml:lang="en">This property associates a Thread with the FirstLevelComment that opens it.</rdfs:comment>
         <rdfs:label xml:lang="en">has first comment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_follower -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_follower">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/ParticipationItem"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/#RegisteredParticipant"/>
+        <rdfs:label xml:lang="en">has follower</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -561,6 +561,18 @@ It is inverse property of acts_on, and it has range Agent.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:label xml:lang="en">has subgroup</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.decidim.org/decidim_roadmap/has_supporter -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/has_supporter">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
+        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/supporter_of"/>
+        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
+        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
+        <rdfs:label xml:lang="en">has supporter</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -854,18 +866,6 @@ It is inverse property of specified_by.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/Group"/>
         <rdfs:label xml:lang="en">subgroup of</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ontology.decidim.org/decidim_roadmap/supported_by -->
-
-    <owl:ObjectProperty rdf:about="http://ontology.decidim.org/decidim_roadmap/supported_by">
-        <rdfs:subPropertyOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/has_actor"/>
-        <owl:inverseOf rdf:resource="http://ontology.decidim.org/decidim_roadmap/supporter_of"/>
-        <rdfs:domain rdf:resource="http://ontology.decidim.org/decidim_roadmap/Proposal"/>
-        <rdfs:range rdf:resource="http://ontology.decidim.org/decidim_roadmap/RegisteredPerson"/>
-        <rdfs:label xml:lang="en">supported by</rdfs:label>
     </owl:ObjectProperty>
     
 
