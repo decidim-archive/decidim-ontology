@@ -6,7 +6,18 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://ontology.decidim.org/decidim_roadmap/"/>
+    <owl:Ontology rdf:about="http://ontology.decidim.org/decidim_roadmap/">
+        <owl:versionIRI rdf:resource="http://ontology.decidim.org/decidim_roadmap/1.0.0"/>
+        <rdfs:comment xml:lang="en">OWL ontology for participatory democracy in Decidim.
+
+It provides a formal definition of the types, properties, and interrelationships of the entities that constitute the socio-technical ecosystem of participative democracy in the context of the Decidim platform.
+
+The ontology is formalized and written using the machine-processable language RDF/OWL (Web Ontology Language) for knowledge representation.
+
+This version of the ontology describes not only the current functionalities of Decidim, but also the functionalitites under development and foreseen in the development roadmap.</rdfs:comment>
+        <owl:versionInfo xml:lang="en">1.0.0</owl:versionInfo>
+        <rdfs:label xml:lang="en">Decidim Ontology</rdfs:label>
+    </owl:Ontology>
     
 
 
